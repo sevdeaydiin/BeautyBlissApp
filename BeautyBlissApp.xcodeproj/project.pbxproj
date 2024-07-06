@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B02BA48D2C39BAE400919736 /* BeautyBlissAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA48C2C39BAE400919736 /* BeautyBlissAppApp.swift */; };
+		B02BA48F2C39BAE400919736 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA48E2C39BAE400919736 /* ContentView.swift */; };
+		B02BA4912C39BAE600919736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02BA4902C39BAE600919736 /* Assets.xcassets */; };
+		B02BA4942C39BAE600919736 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02BA4932C39BAE600919736 /* Preview Assets.xcassets */; };
+		B02BA49E2C39BAE600919736 /* BeautyBlissAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA49D2C39BAE600919736 /* BeautyBlissAppTests.swift */; };
+		B02BA4A82C39BAE600919736 /* BeautyBlissAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA4A72C39BAE600919736 /* BeautyBlissAppUITests.swift */; };
+		B02BA4AA2C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA4A92C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B02BA49A2C39BAE600919736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B02BA4812C39BAE400919736 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B02BA4882C39BAE400919736;
+			remoteInfo = BeautyBlissApp;
+		};
+		B02BA4A42C39BAE600919736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B02BA4812C39BAE400919736 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B02BA4882C39BAE400919736;
+			remoteInfo = BeautyBlissApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B02BA4892C39BAE400919736 /* BeautyBlissApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyBlissApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B02BA48C2C39BAE400919736 /* BeautyBlissAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBlissAppApp.swift; sourceTree = "<group>"; };
+		B02BA48E2C39BAE400919736 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B02BA4902C39BAE600919736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B02BA4932C39BAE600919736 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B02BA4992C39BAE600919736 /* BeautyBlissAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeautyBlissAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B02BA49D2C39BAE600919736 /* BeautyBlissAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBlissAppTests.swift; sourceTree = "<group>"; };
+		B02BA4A32C39BAE600919736 /* BeautyBlissAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeautyBlissAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B02BA4A72C39BAE600919736 /* BeautyBlissAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBlissAppUITests.swift; sourceTree = "<group>"; };
+		B02BA4A92C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBlissAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B02BA4862C39BAE400919736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B02BA4962C39BAE600919736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B02BA4A02C39BAE600919736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B02BA4802C39BAE400919736 = {
+			isa = PBXGroup;
+			children = (
+				B02BA48B2C39BAE400919736 /* BeautyBlissApp */,
+				B02BA49C2C39BAE600919736 /* BeautyBlissAppTests */,
+				B02BA4A62C39BAE600919736 /* BeautyBlissAppUITests */,
+				B02BA48A2C39BAE400919736 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B02BA48A2C39BAE400919736 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B02BA4892C39BAE400919736 /* BeautyBlissApp.app */,
+				B02BA4992C39BAE600919736 /* BeautyBlissAppTests.xctest */,
+				B02BA4A32C39BAE600919736 /* BeautyBlissAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B02BA48B2C39BAE400919736 /* BeautyBlissApp */ = {
+			isa = PBXGroup;
+			children = (
+				B02BA48C2C39BAE400919736 /* BeautyBlissAppApp.swift */,
+				B02BA48E2C39BAE400919736 /* ContentView.swift */,
+				B02BA4902C39BAE600919736 /* Assets.xcassets */,
+				B02BA4922C39BAE600919736 /* Preview Content */,
+			);
+			path = BeautyBlissApp;
+			sourceTree = "<group>";
+		};
+		B02BA4922C39BAE600919736 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B02BA4932C39BAE600919736 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B02BA49C2C39BAE600919736 /* BeautyBlissAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				B02BA49D2C39BAE600919736 /* BeautyBlissAppTests.swift */,
+			);
+			path = BeautyBlissAppTests;
+			sourceTree = "<group>";
+		};
+		B02BA4A62C39BAE600919736 /* BeautyBlissAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B02BA4A72C39BAE600919736 /* BeautyBlissAppUITests.swift */,
+				B02BA4A92C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift */,
+			);
+			path = BeautyBlissAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B02BA4882C39BAE400919736 /* BeautyBlissApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B02BA4AD2C39BAE600919736 /* Build configuration list for PBXNativeTarget "BeautyBlissApp" */;
+			buildPhases = (
+				B02BA4852C39BAE400919736 /* Sources */,
+				B02BA4862C39BAE400919736 /* Frameworks */,
+				B02BA4872C39BAE400919736 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeautyBlissApp;
+			productName = BeautyBlissApp;
+			productReference = B02BA4892C39BAE400919736 /* BeautyBlissApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B02BA4982C39BAE600919736 /* BeautyBlissAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B02BA4B02C39BAE600919736 /* Build configuration list for PBXNativeTarget "BeautyBlissAppTests" */;
+			buildPhases = (
+				B02BA4952C39BAE600919736 /* Sources */,
+				B02BA4962C39BAE600919736 /* Frameworks */,
+				B02BA4972C39BAE600919736 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B02BA49B2C39BAE600919736 /* PBXTargetDependency */,
+			);
+			name = BeautyBlissAppTests;
+			productName = BeautyBlissAppTests;
+			productReference = B02BA4992C39BAE600919736 /* BeautyBlissAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B02BA4A22C39BAE600919736 /* BeautyBlissAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B02BA4B32C39BAE600919736 /* Build configuration list for PBXNativeTarget "BeautyBlissAppUITests" */;
+			buildPhases = (
+				B02BA49F2C39BAE600919736 /* Sources */,
+				B02BA4A02C39BAE600919736 /* Frameworks */,
+				B02BA4A12C39BAE600919736 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B02BA4A52C39BAE600919736 /* PBXTargetDependency */,
+			);
+			name = BeautyBlissAppUITests;
+			productName = BeautyBlissAppUITests;
+			productReference = B02BA4A32C39BAE600919736 /* BeautyBlissAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B02BA4812C39BAE400919736 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					B02BA4882C39BAE400919736 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					B02BA4982C39BAE600919736 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = B02BA4882C39BAE400919736;
+					};
+					B02BA4A22C39BAE600919736 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = B02BA4882C39BAE400919736;
+					};
+				};
+			};
+			buildConfigurationList = B02BA4842C39BAE400919736 /* Build configuration list for PBXProject "BeautyBlissApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B02BA4802C39BAE400919736;
+			productRefGroup = B02BA48A2C39BAE400919736 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B02BA4882C39BAE400919736 /* BeautyBlissApp */,
+				B02BA4982C39BAE600919736 /* BeautyBlissAppTests */,
+				B02BA4A22C39BAE600919736 /* BeautyBlissAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B02BA4872C39BAE400919736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B02BA4942C39BAE600919736 /* Preview Assets.xcassets in Resources */,
+				B02BA4912C39BAE600919736 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B02BA4972C39BAE600919736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B02BA4A12C39BAE600919736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B02BA4852C39BAE400919736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B02BA48F2C39BAE400919736 /* ContentView.swift in Sources */,
+				B02BA48D2C39BAE400919736 /* BeautyBlissAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B02BA4952C39BAE600919736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B02BA49E2C39BAE600919736 /* BeautyBlissAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B02BA49F2C39BAE600919736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B02BA4AA2C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift in Sources */,
+				B02BA4A82C39BAE600919736 /* BeautyBlissAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B02BA49B2C39BAE600919736 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B02BA4882C39BAE400919736 /* BeautyBlissApp */;
+			targetProxy = B02BA49A2C39BAE600919736 /* PBXContainerItemProxy */;
+		};
+		B02BA4A52C39BAE600919736 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B02BA4882C39BAE400919736 /* BeautyBlissApp */;
+			targetProxy = B02BA4A42C39BAE600919736 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B02BA4AB2C39BAE600919736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B02BA4AC2C39BAE600919736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B02BA4AE2C39BAE600919736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BeautyBlissApp/Preview Content\"";
+				DEVELOPMENT_TEAM = H5P32Y7JUB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.BeautyBlissApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B02BA4AF2C39BAE600919736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BeautyBlissApp/Preview Content\"";
+				DEVELOPMENT_TEAM = H5P32Y7JUB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.BeautyBlissApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B02BA4B12C39BAE600919736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H5P32Y7JUB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.BeautyBlissAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeautyBlissApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeautyBlissApp";
+			};
+			name = Debug;
+		};
+		B02BA4B22C39BAE600919736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H5P32Y7JUB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.BeautyBlissAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeautyBlissApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeautyBlissApp";
+			};
+			name = Release;
+		};
+		B02BA4B42C39BAE600919736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H5P32Y7JUB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.BeautyBlissAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeautyBlissApp;
+			};
+			name = Debug;
+		};
+		B02BA4B52C39BAE600919736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H5P32Y7JUB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.BeautyBlissAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeautyBlissApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B02BA4842C39BAE400919736 /* Build configuration list for PBXProject "BeautyBlissApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B02BA4AB2C39BAE600919736 /* Debug */,
+				B02BA4AC2C39BAE600919736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B02BA4AD2C39BAE600919736 /* Build configuration list for PBXNativeTarget "BeautyBlissApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B02BA4AE2C39BAE600919736 /* Debug */,
+				B02BA4AF2C39BAE600919736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B02BA4B02C39BAE600919736 /* Build configuration list for PBXNativeTarget "BeautyBlissAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B02BA4B12C39BAE600919736 /* Debug */,
+				B02BA4B22C39BAE600919736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B02BA4B32C39BAE600919736 /* Build configuration list for PBXNativeTarget "BeautyBlissAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B02BA4B42C39BAE600919736 /* Debug */,
+				B02BA4B52C39BAE600919736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B02BA4812C39BAE400919736 /* Project object */;
+}
