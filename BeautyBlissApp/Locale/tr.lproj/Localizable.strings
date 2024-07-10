@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  BeautyBlissApp
+
+  Created by Sevde Aydın on 9.07.2024.
+  
+*/
+
+"welcomeBack" = "Yeniden Hoşgeldin!";
+"notAMember" = "Üye değil misin? ";
+"joinUs" = "Bize katıl";
+"email" = "Email";
+"password" = "Parola";
+"login" = "GİRİŞ YAP";
