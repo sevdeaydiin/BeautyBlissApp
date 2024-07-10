@@ -11,7 +11,8 @@ import SwiftUI
 struct BeautyBlissAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }
+
