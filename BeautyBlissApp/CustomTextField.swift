@@ -35,7 +35,7 @@ struct CustomTextField: View {
             TextField("", text: $text)
                 .font(.headline)
                 .fontWeight(.regular)
-                .foregroundStyle(Color.lightText)
+                .foregroundStyle(Color.darkBg)
                 .padding(.horizontal, 10)
         }
         .padding(.vertical, 14)

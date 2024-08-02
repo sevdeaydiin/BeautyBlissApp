@@ -64,10 +64,4 @@ struct SplashView: View {
                 Spacer()
             }.padding(.horizontal, 20)
                 .padding(.top, 30)
-        }.ignoresSafeArea()
-    }
-}
-
-#Preview {
-    SplashView()
-}
+ 

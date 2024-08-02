@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B00EBD022C3B368C009D9B08 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00EBD012C3B368C009D9B08 /* Tab.swift */; };
 		B02BA48D2C39BAE400919736 /* BeautyBlissAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA48C2C39BAE400919736 /* BeautyBlissAppApp.swift */; };
 		B02BA48F2C39BAE400919736 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA48E2C39BAE400919736 /* ContentView.swift */; };
 		B02BA4912C39BAE600919736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02BA4902C39BAE600919736 /* Assets.xcassets */; };
@@ -15,9 +14,12 @@
 		B02BA49E2C39BAE600919736 /* BeautyBlissAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA49D2C39BAE600919736 /* BeautyBlissAppTests.swift */; };
 		B02BA4A82C39BAE600919736 /* BeautyBlissAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA4A72C39BAE600919736 /* BeautyBlissAppUITests.swift */; };
 		B02BA4AA2C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA4A92C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift */; };
-		B02BA4B82C39C21700919736 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA4B72C39C21700919736 /* SplashView.swift */; };
 		B02BA4BA2C39C6A200919736 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA4B92C39C6A200919736 /* LoginView.swift */; };
 		B04407B02C3C84BB00099457 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04407AF2C3C84BB00099457 /* CustomTextField.swift */; };
+		B08C90EA2C5D8FBA00BE2130 /* FlickerTextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08C90E92C5D8FBA00BE2130 /* FlickerTextAnimation.swift */; };
+		B08C90ED2C5D907900BE2130 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08C90EC2C5D907900BE2130 /* Tab.swift */; };
+		B08C90EF2C5D908200BE2130 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08C90EE2C5D908200BE2130 /* User.swift */; };
+		B08C90F12C5D912300BE2130 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08C90F02C5D912300BE2130 /* OnboardingView.swift */; };
 		B0BBB2F82C3C283500C78397 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BBB2F72C3C283500C78397 /* HomeView.swift */; };
 		B0DCB6452C3D868E000EAF48 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0DCB6442C3D868E000EAF48 /* Localizable.strings */; };
 		B0DCB6482C3D8A78000EAF48 /* LocaleKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DCB6472C3D8A78000EAF48 /* LocaleKeys.swift */; };
@@ -41,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B00EBD012C3B368C009D9B08 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		B02BA4892C39BAE400919736 /* BeautyBlissApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyBlissApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02BA48C2C39BAE400919736 /* BeautyBlissAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBlissAppApp.swift; sourceTree = "<group>"; };
 		B02BA48E2C39BAE400919736 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,9 +53,12 @@
 		B02BA4A32C39BAE600919736 /* BeautyBlissAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeautyBlissAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02BA4A72C39BAE600919736 /* BeautyBlissAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBlissAppUITests.swift; sourceTree = "<group>"; };
 		B02BA4A92C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBlissAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B02BA4B72C39C21700919736 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		B02BA4B92C39C6A200919736 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B04407AF2C3C84BB00099457 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B08C90E92C5D8FBA00BE2130 /* FlickerTextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerTextAnimation.swift; sourceTree = "<group>"; };
+		B08C90EC2C5D907900BE2130 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		B08C90EE2C5D908200BE2130 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B08C90F02C5D912300BE2130 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		B0BBB2F72C3C283500C78397 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B0DCB6432C3D868E000EAF48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0DCB6462C3D874D000EAF48 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -86,14 +90,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B00EBD002C3B367D009D9B08 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B00EBD012C3B368C009D9B08 /* Tab.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B012FBA72C3D810C006CB9FB /* Locale */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +122,9 @@
 		B02BA48B2C39BAE400919736 /* BeautyBlissApp */ = {
 			isa = PBXGroup;
 			children = (
+				B08C90EB2C5D906A00BE2130 /* Model */,
+				B0680B642C5D8F8000FEB051 /* Items */,
 				B012FBA72C3D810C006CB9FB /* Locale */,
-				B00EBD002C3B367D009D9B08 /* Model */,
 				B02BA4B62C39C02900919736 /* Views */,
 				B02BA48C2C39BAE400919736 /* BeautyBlissAppApp.swift */,
 				B02BA48E2C39BAE400919736 /* ContentView.swift */,
@@ -166,11 +163,28 @@
 		B02BA4B62C39C02900919736 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B02BA4B72C39C21700919736 /* SplashView.swift */,
 				B02BA4B92C39C6A200919736 /* LoginView.swift */,
 				B0BBB2F72C3C283500C78397 /* HomeView.swift */,
+				B08C90F02C5D912300BE2130 /* OnboardingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B0680B642C5D8F8000FEB051 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				B08C90E92C5D8FBA00BE2130 /* FlickerTextAnimation.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		B08C90EB2C5D906A00BE2130 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B08C90EC2C5D907900BE2130 /* Tab.swift */,
+				B08C90EE2C5D908200BE2130 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,11 +321,13 @@
 			files = (
 				B02BA48F2C39BAE400919736 /* ContentView.swift in Sources */,
 				B02BA48D2C39BAE400919736 /* BeautyBlissAppApp.swift in Sources */,
-				B00EBD022C3B368C009D9B08 /* Tab.swift in Sources */,
+				B08C90EA2C5D8FBA00BE2130 /* FlickerTextAnimation.swift in Sources */,
+				B08C90F12C5D912300BE2130 /* OnboardingView.swift in Sources */,
 				B0BBB2F82C3C283500C78397 /* HomeView.swift in Sources */,
 				B04407B02C3C84BB00099457 /* CustomTextField.swift in Sources */,
 				B02BA4BA2C39C6A200919736 /* LoginView.swift in Sources */,
-				B02BA4B82C39C21700919736 /* SplashView.swift in Sources */,
+				B08C90ED2C5D907900BE2130 /* Tab.swift in Sources */,
+				B08C90EF2C5D908200BE2130 /* User.swift in Sources */,
 				B0DCB6482C3D8A78000EAF48 /* LocaleKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

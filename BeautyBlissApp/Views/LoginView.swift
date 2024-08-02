@@ -24,7 +24,7 @@ struct LoginView: View {
                             .padding(.bottom, 50)
                         
                 NavigationLink {
-                    SignUpView().navigationBarBackButtonHidden()
+                    //SignUpView().navigationBarBackButtonHidden()
                 } label: {
                     Text(LocaleKeys.Login.member.rawValue.locale())
                                 .font(.footnote)
