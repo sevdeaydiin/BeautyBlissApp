@@ -26,5 +26,5 @@ struct User: Decodable, Identifiable {
     var orders: [String]?
     var favorites: [String]?
     var clubScore: Int?
-    var clubNo:Int?
+    var clubNo: Int?
 }
