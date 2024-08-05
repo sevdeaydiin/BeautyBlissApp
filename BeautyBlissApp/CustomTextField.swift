@@ -26,7 +26,7 @@ struct CustomTextField: View {
     var body: some View {
         ZStack(alignment: .leading) {
             Text(placeholderText)
-                .foregroundStyle($text.wrappedValue.isEmpty ? Color.secondary : .gray)
+                .foregroundStyle($text.wrappedValue.isEmpty ? Color.mySecondary : .gray)
                 .font($text.wrappedValue.isEmpty ? .headline : .caption)
                 .offset(y: placeholderOffset)
                 .scaleEffect(scaleEffectValue, anchor: .leading)
@@ -35,7 +35,7 @@ struct CustomTextField: View {
             TextField("", text: $text)
                 .font(.headline)
                 .fontWeight(.regular)
-                .foregroundStyle(Color.darkBg)
+                .foregroundStyle(Color.lightTheme)
                 .padding(.horizontal, 10)
         }
         .padding(.vertical, 14)

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct NetworkConstants {
+    static let baseURL = "http://localhost:4000/"
+}
