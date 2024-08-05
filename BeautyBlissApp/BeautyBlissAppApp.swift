@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct BeautyBlissAppApp: App {
+    
+    init() {
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            ContentView()
+                .environmentObject(AuthViewModel.shared)
         }
     }
 }
