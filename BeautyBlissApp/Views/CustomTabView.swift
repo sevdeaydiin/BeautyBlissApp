@@ -22,16 +22,16 @@ struct CustomTabView: View {
                     .tag(Tab.home)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Text("Services")
-                    .tag(Tab.services)
+                Text("Explore")
+                    .tag(Tab.explore)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Text("Partners")
-                    .tag(Tab.partners)
+                Favorite()
+                    .tag(Tab.favorite)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Text("Activity")
-                    .tag(Tab.activity)
+                Text("Profile")
+                    .tag(Tab.profile)
                     .toolbar(.hidden, for: .tabBar)
             }
             
