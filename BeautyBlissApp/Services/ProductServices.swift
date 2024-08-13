@@ -6,3 +6,31 @@
 //
 
 import Foundation
+
+public class ProductServices {
+    
+    public static var requestDomain = ""
+    
+    static func fetchProduct(completion: @escaping (_ result: Result<Data?, NetworkError>) -> Void) {
+        let url = URL(string: requestDomain)!
+        
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = session.dataTask(with: request) { data, res, err in
+            guard err == nil else {
+                completion(.failure(.noData))
+                return
+            }
+            guard let data = data else { return }
+                        completion(.success(data))
+                    }
+                    task.resume()
+            
+        }
+    }
+
