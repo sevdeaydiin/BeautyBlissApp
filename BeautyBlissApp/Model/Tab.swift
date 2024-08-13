@@ -9,20 +9,20 @@ import Foundation
 
 enum Tab: String, CaseIterable {
     case home = "Home"
-    case services = "Services"
-    case partners = "Partners"
-    case activity = "Activity"
+    case explore = "Explore"
+    case favorite = "Favorite"
+    case profile = "Profile"
 
     var systemImage: String {
         switch self {
         case .home:
             return "house"
-        case .services:
-            return "envelope.open.badge.clock"
-        case .partners:
-            return "hand.raised"
-        case .activity:
-            return "bell"
+        case .explore:
+            return "safari"
+        case .favorite:
+            return "heart"
+        case .profile:
+            return "person"
         }
     }
 
