@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "lotus.png",
+      "filename" : "freepik-export-20240813134107MkZi.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "freepik-export-20240813134121lzlp.png",
       "idiom" : "universal"
     }
   ],

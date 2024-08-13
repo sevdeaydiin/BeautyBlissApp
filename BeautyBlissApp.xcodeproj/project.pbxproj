@@ -16,6 +16,12 @@
 		B02BA4AA2C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA4A92C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift */; };
 		B02BA4BA2C39C6A200919736 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BA4B92C39C6A200919736 /* LoginView.swift */; };
 		B04407B02C3C84BB00099457 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04407AF2C3C84BB00099457 /* CustomTextField.swift */; };
+		B048CB462C6B91C700F4BB42 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048CB452C6B91C700F4BB42 /* AuthServices.swift */; };
+		B048CB492C6B91FB00F4BB42 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048CB482C6B91FB00F4BB42 /* Extension.swift */; };
+		B048CB4C2C6B925800F4BB42 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048CB4B2C6B925800F4BB42 /* NetworkConstants.swift */; };
+		B048CB4F2C6B928600F4BB42 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048CB4E2C6B928600F4BB42 /* AuthViewModel.swift */; };
+		B048CB512C6B92A300F4BB42 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048CB502C6B92A300F4BB42 /* CustomTabView.swift */; };
+		B048CB542C6B92F700F4BB42 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048CB532C6B92F700F4BB42 /* RegisterView.swift */; };
 		B08C90EA2C5D8FBA00BE2130 /* FlickerTextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08C90E92C5D8FBA00BE2130 /* FlickerTextAnimation.swift */; };
 		B08C90ED2C5D907900BE2130 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08C90EC2C5D907900BE2130 /* Tab.swift */; };
 		B08C90EF2C5D908200BE2130 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08C90EE2C5D908200BE2130 /* User.swift */; };
@@ -55,6 +61,12 @@
 		B02BA4A92C39BAE600919736 /* BeautyBlissAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBlissAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B02BA4B92C39C6A200919736 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B04407AF2C3C84BB00099457 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B048CB452C6B91C700F4BB42 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		B048CB482C6B91FB00F4BB42 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B048CB4B2C6B925800F4BB42 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		B048CB4E2C6B928600F4BB42 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		B048CB502C6B92A300F4BB42 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		B048CB532C6B92F700F4BB42 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		B08C90E92C5D8FBA00BE2130 /* FlickerTextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerTextAnimation.swift; sourceTree = "<group>"; };
 		B08C90EC2C5D907900BE2130 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		B08C90EE2C5D908200BE2130 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -122,15 +134,17 @@
 		B02BA48B2C39BAE400919736 /* BeautyBlissApp */ = {
 			isa = PBXGroup;
 			children = (
+				B012FBA72C3D810C006CB9FB /* Locale */,
+				B048CB4A2C6B921400F4BB42 /* Utilities */,
+				B048CB472C6B91EB00F4BB42 /* Extensions */,
+				B048CB442C6B91B900F4BB42 /* Services */,
 				B08C90EB2C5D906A00BE2130 /* Model */,
 				B0680B642C5D8F8000FEB051 /* Items */,
-				B012FBA72C3D810C006CB9FB /* Locale */,
+				B048CB4D2C6B927700F4BB42 /* ViewModels */,
 				B02BA4B62C39C02900919736 /* Views */,
 				B02BA48C2C39BAE400919736 /* BeautyBlissAppApp.swift */,
-				B02BA48E2C39BAE400919736 /* ContentView.swift */,
 				B02BA4902C39BAE600919736 /* Assets.xcassets */,
 				B02BA4922C39BAE600919736 /* Preview Content */,
-				B04407AF2C3C84BB00099457 /* CustomTextField.swift */,
 			);
 			path = BeautyBlissApp;
 			sourceTree = "<group>";
@@ -163,16 +177,60 @@
 		B02BA4B62C39C02900919736 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B02BA4B92C39C6A200919736 /* LoginView.swift */,
+				B048CB522C6B92DF00F4BB42 /* Authentication */,
 				B0BBB2F72C3C283500C78397 /* HomeView.swift */,
+				B02BA48E2C39BAE400919736 /* ContentView.swift */,
 				B08C90F02C5D912300BE2130 /* OnboardingView.swift */,
+				B048CB502C6B92A300F4BB42 /* CustomTabView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B048CB442C6B91B900F4BB42 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B048CB452C6B91C700F4BB42 /* AuthServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B048CB472C6B91EB00F4BB42 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B048CB482C6B91FB00F4BB42 /* Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B048CB4A2C6B921400F4BB42 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B048CB4B2C6B925800F4BB42 /* NetworkConstants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B048CB4D2C6B927700F4BB42 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B048CB4E2C6B928600F4BB42 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B048CB522C6B92DF00F4BB42 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B02BA4B92C39C6A200919736 /* LoginView.swift */,
+				B048CB532C6B92F700F4BB42 /* RegisterView.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		B0680B642C5D8F8000FEB051 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				B04407AF2C3C84BB00099457 /* CustomTextField.swift */,
 				B08C90E92C5D8FBA00BE2130 /* FlickerTextAnimation.swift */,
 			);
 			path = Items;
@@ -319,16 +377,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B048CB4C2C6B925800F4BB42 /* NetworkConstants.swift in Sources */,
 				B02BA48F2C39BAE400919736 /* ContentView.swift in Sources */,
 				B02BA48D2C39BAE400919736 /* BeautyBlissAppApp.swift in Sources */,
 				B08C90EA2C5D8FBA00BE2130 /* FlickerTextAnimation.swift in Sources */,
+				B048CB492C6B91FB00F4BB42 /* Extension.swift in Sources */,
 				B08C90F12C5D912300BE2130 /* OnboardingView.swift in Sources */,
 				B0BBB2F82C3C283500C78397 /* HomeView.swift in Sources */,
 				B04407B02C3C84BB00099457 /* CustomTextField.swift in Sources */,
 				B02BA4BA2C39C6A200919736 /* LoginView.swift in Sources */,
 				B08C90ED2C5D907900BE2130 /* Tab.swift in Sources */,
+				B048CB4F2C6B928600F4BB42 /* AuthViewModel.swift in Sources */,
 				B08C90EF2C5D908200BE2130 /* User.swift in Sources */,
+				B048CB512C6B92A300F4BB42 /* CustomTabView.swift in Sources */,
+				B048CB542C6B92F700F4BB42 /* RegisterView.swift in Sources */,
 				B0DCB6482C3D8A78000EAF48 /* LocaleKeys.swift in Sources */,
+				B048CB462C6B91C700F4BB42 /* AuthServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
