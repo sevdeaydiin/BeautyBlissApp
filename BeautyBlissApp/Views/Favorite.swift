@@ -13,22 +13,29 @@ struct Favorite: View {
     @ObservedObject var viewModel = ProductViewModel()
     var body: some View {
         
-        ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: columns) {
-                
-                ForEach(viewModel.products) { product in
-                    ProductCard(viewModel: FavoriteCardViewModel(product: product))     
-                }
- 
-                Spacer()
+        VStack {
+            Text("Favorite")
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundStyle(.first)
+                .padding()
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: columns) {
+                    
+                    ForEach(viewModel.products) { product in
+                        FavoriteCard(viewModel: FavoriteCardViewModel(product: product))     
+                    }
+     
+                    Spacer()
 
+                }
+                .padding()
+                //.frame(maxWidth: .infinity, maxHeight: .infinity)
+                
             }
-            .padding()
-            //.frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-        }
-        .background(Color.lightGray)
+            .background(Color.lightGray)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
@@ -36,7 +43,7 @@ struct Favorite: View {
     Favorite()
 }
 
-struct ProductCard: View {
+struct FavoriteCard: View {
     
     @ObservedObject var viewModel: FavoriteCardViewModel
     init(viewModel: FavoriteCardViewModel) {

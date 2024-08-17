@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct SearchProduct: View {
+    
+    @Binding var searchProduct: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Search product", text: $searchProduct)
+            }
+            .padding()
+            .background(Color.lightGray)
+            .cornerRadius(5)
+            
+            RoundedRectangle(cornerRadius: 5)
+                .fill(Color.first)
+                .frame(width: 50)
+                .overlay(Image("filter")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 25, height: 25)
+                )
+        }
+        .frame(maxWidth: .infinity, maxHeight: 50)
+        .padding(.horizontal, 5)
     }
-}
-
-#Preview {
-    SearchProduct()
 }

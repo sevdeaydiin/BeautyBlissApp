@@ -12,13 +12,14 @@ struct CustomTabView: View {
     //let user: User
     
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var activeTab: Tab = .home
+    @State private var activeTab: Tab = .favorite
     @Namespace private var animation
     
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
                 HomeView(viewModel: ProductViewModel())
+                    //.background(Color.white.ignoresSafeArea())
                     .tag(Tab.home)
                     .toolbar(.hidden, for: .tabBar)
                 
@@ -27,6 +28,7 @@ struct CustomTabView: View {
                     .toolbar(.hidden, for: .tabBar)
                 
                 Favorite()
+                    //.background(Color.lightGray.ignoresSafeArea())
                     .tag(Tab.favorite)
                     .toolbar(.hidden, for: .tabBar)
                 
@@ -36,7 +38,8 @@ struct CustomTabView: View {
             }
             
             CustomTabBar()
-            
+                .background(Color.white.opacity(0.1)) // TabBar'ın arka planını saydam yap
+                .padding(.top, -35)
         }
     }
     
@@ -90,7 +93,8 @@ struct TabItem:View {
             Text(tab.rawValue)
                 .font(.caption)
                 .foregroundStyle(activeTab == tab ? tint : .gray.opacity(0.6))
-        }.frame(maxWidth: .infinity)
+        }
+        .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
             .onTapGesture {
                 activeTab = tab
