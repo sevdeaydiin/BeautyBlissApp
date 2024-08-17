@@ -30,7 +30,6 @@ public class ProductServices {
                         completion(.success(data))
                     }
                     task.resume()
-            
         }
     }
 

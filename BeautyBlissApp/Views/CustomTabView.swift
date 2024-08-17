@@ -18,11 +18,11 @@ struct CustomTabView: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
-                HomeView()
+                HomeView(viewModel: ProductViewModel())
                     .tag(Tab.home)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Text("Explore")
+                Explore()
                     .tag(Tab.explore)
                     .toolbar(.hidden, for: .tabBar)
                 

@@ -10,6 +10,8 @@ import Foundation
 class ProductViewModel: ObservableObject {
     
     @Published var products = [Product]()
+    @Published var filteredProducts: [Product] = []
+    @Published var selectedCategory: String = "All"
     
     init() {
         fetchProducts()
@@ -35,6 +37,14 @@ class ProductViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
-        
     }
+    
+    func filterProducts(by category: String) {
+        if category == "All" {
+            filteredProducts = products
+        } else {
+            filteredProducts = products.filter { $0.category == category }
+        }
+    }
+    
 }
