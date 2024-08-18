@@ -19,7 +19,7 @@ struct Product: Identifiable, Decodable {
     }
     let brand: String
     var name: String
-    var salary: Int
+    var salary: Double
     var image: ImageData
     var productInfo: String?
     let category: String
