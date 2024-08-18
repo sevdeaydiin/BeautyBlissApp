@@ -25,9 +25,6 @@ struct Favorite: View {
                     ForEach(viewModel.products) { product in
                         FavoriteCard(viewModel: FavoriteCardViewModel(product: product))     
                     }
-     
-                    Spacer()
-
                 }
                 .padding()
                 //.frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -77,7 +74,7 @@ struct FavoriteCard: View {
                             .lineLimit(2)
                             .foregroundStyle(.lightTheme)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        Text("$\(self.viewModel.product.salary)")
+                        Text("$\(self.viewModel.product.salary, specifier: "%.2f")")
                             .font(.headline)
                             .foregroundStyle(.first)
                     }
