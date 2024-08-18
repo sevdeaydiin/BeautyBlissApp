@@ -15,71 +15,83 @@ struct HomeView: View {
     
     @ObservedObject var viewModel: ProductViewModel
     
-    let categories: [String] = ["All", "Powder", "Foundation", "Lips"]
+    let categories: [String] = ["All", "Powder", "Foundation", "Lips", "Blush"]
+    
+    @State var isAct: Bool = false
+    @Binding var isShowingProductInfo: Bool
     
     var body: some View {
         
-        VStack(spacing: 0) {
-            
-            ToolBar()
-            
-            ScrollView(showsIndicators: false) {
+        NavigationStack {
+            VStack(spacing: 0) {
                 
-                SearchProduct(searchProduct: $searchProduct)
+                ToolBar()
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack (spacing: 10){
-                        ForEach(images, id: \.self) { image in
-                            ZStack {
-                                Image(image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(maxWidth: .infinity, maxHeight: 150)
-                                    .scrollTransition(axis: .horizontal) { content, phase in
-                                        return content.offset(x: phase.value * -250)
-                                    }
-                            }
-                            .containerRelativeFrame(.horizontal)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                        }
-                    }
-                }
-                .contentMargins(.horizontal, 32)
-                .padding(.leading, -20)
-                .padding(.top, 20)
-                
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack (spacing: 10) {
-                        ForEach(categories, id: \.self) { category in
-                            CategoryButton(category: category, isSelected: viewModel.selectedCategory == category) {
-                                viewModel.selectedCategory = category
-                                viewModel.filterProducts(by: category)
+                ScrollView(showsIndicators: false) {
+                    
+                    SearchProduct(searchProduct: $searchProduct)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack (spacing: 10){
+                            ForEach(images, id: \.self) { image in
+                                ZStack {
+                                    Image(image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(maxWidth: .infinity, maxHeight: 150)
+                                        .scrollTransition(axis: .horizontal) { content, phase in
+                                            return content.offset(x: phase.value * -250)
+                                        }
+                                }
+                                .containerRelativeFrame(.horizontal)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
                         }
                     }
-                    .padding(.horizontal, 8)
+                    .contentMargins(.horizontal, 32)
+                    .padding(.leading, -20)
                     .padding(.top, 20)
-                }
-                
-                
-                ScrollView(.vertical, showsIndicators: false) {
-                    LazyVGrid( columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                        ForEach(viewModel.filteredProducts, id: \.id) { product in
-                                HomeCard(product: product, viewModel: HomeCardViewModel(product: product))
+                    
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack (spacing: 10) {
+                            ForEach(viewModel.categories, id: \.self) { category in
+                                CategoryButton(category: category, isSelected: viewModel.selectedCategory == category) {
+                                    viewModel.selectedCategory = category
+                                    viewModel.filterProducts(by: category)
+                                }
+                            }
                         }
+                        .padding(.horizontal, 8)
+                        .padding(.top, 20)
                     }
-                    .padding(.vertical, 10)
+                    
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        LazyVGrid( columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                            ForEach(viewModel.filteredProducts, id: \.id) { product in
+                                
+                                //NavigationLink(destination: ProductInfoView(), label: {
+                                HomeCard(product: product, viewModel: HomeCardViewModel(product: product), isAct: $isAct, isShowingProductInfo: $isShowingProductInfo)
+                                //})
+                            }
+                        }
+                        .padding(.vertical, 10)
+                    }
+                    .padding(.bottom, -20)
+                    
                 }
-                .padding(.bottom, -20)
+                
                 
             }
-            
-            
+            .ignoresSafeArea(.all)
+            .padding(.horizontal, 10)
+            .padding(.vertical)
+            .navigationDestination(isPresented: $isAct) {
+                ProductInfoView()
+                    .navigationBarBackButtonHidden()
+            }
         }
-        .ignoresSafeArea(.all)
-        .padding(.horizontal, 10)
-        .padding(.vertical)
     }
 }
 
@@ -122,69 +134,70 @@ struct HomeCard: View {
     
     let product: Product
     @ObservedObject var viewModel: HomeCardViewModel
-    
+    @Binding var isAct: Bool
+    @Binding var isShowingProductInfo: Bool
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 5)
-            .fill(Color.darkBg)
-            .frame(width: Sizes.width * 0.45, height: Sizes.height * 0.25)
-            .shadow(color: .myGray.opacity(0.6), radius: 2)
-            .overlay {
-                VStack(spacing: 25) {
-                    Spacer()
-                    if let uiImage = UIImage(data: Data(self.viewModel.product.image.data)) {
-                        KFImage(source: .provider(KFImageProvider(image: uiImage)))
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: Sizes.width * 0.2, height: Sizes.width * 0.2)
-                    }
+        Button {
+            isAct = true
+            isShowingProductInfo = true
+        } label: {
+            RoundedRectangle(cornerRadius: 5)
+                .fill(Color.darkBg)
+                .frame(width: Sizes.width * 0.45, height: Sizes.height * 0.25)
+                .shadow(color: .myGray.opacity(0.6), radius: 2)
+                .overlay {
+                    VStack(spacing: 25) {
+                        Spacer()
+                        if let uiImage = UIImage(data: Data(self.viewModel.product.image.data)) {
+                            KFImage(source: .provider(KFImageProvider(image: uiImage)))
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: Sizes.width * 0.2, height: Sizes.width * 0.2)
+                        }
+                            
                         
-                    
-                    
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(product.brand)
-                            .font(.caption)
-                            .lineLimit(1)
-                            .foregroundStyle(.myGray)
-                        Text(product.name)
-                            .font(.subheadline)
-                            .fontWeight(.medium)
-                            .lineLimit(2)
-                            .foregroundStyle(.lightTheme)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        Text("$\(product.salary)")
-                            .font(.caption)
-                            .foregroundStyle(.first)
+                        
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(product.brand)
+                                .font(.caption)
+                                .lineLimit(1)
+                                .foregroundStyle(.myGray)
+                            Text(product.name)
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                                .lineLimit(2)
+                                .foregroundStyle(.lightTheme)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            Text("$\(product.salary, specifier: "%.2f")")
+                                .font(.caption)
+                                .foregroundStyle(.first)
+                        }
+                        .frame(maxWidth: .infinity)
+                        //.padding(.top, 15)
+                        .padding(.horizontal, 2)
                     }
-                    .frame(maxWidth: .infinity)
-                    //.padding(.top, 15)
-                    .padding(.horizontal, 2)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 5)
                 }
-                .padding(.vertical, 8)
+                .overlay(
+                    Text("%35")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 10))
+                        .fontWeight(.bold)
+                        .position(x: 30, y: 30)
+                        .background(
+                            Circle()
+                            //.font(.title2)
+                                .foregroundStyle(.myPink)
+                                .frame(width: 30, height: 30)
+                                .position(x: 30, y: 30)
+                            
+                        )
+                )
                 .padding(.horizontal, 5)
-            }
-            .overlay(
-                
-                Text("%35")
-                    .foregroundStyle(.white)
-                    .font(.system(size: 10))
-                    .fontWeight(.bold)
-                    .position(x: 30, y: 30)
-                    .background(
-                        Circle()
-                        //.font(.title2)
-                            .foregroundStyle(.myPink)
-                            .frame(width: 30, height: 30)
-                            .position(x: 30, y: 30)
-                        
-                    )
-            )
-            .padding(.horizontal, 5)
-        
+        }
         
     }
 }
 
-#Preview {
-    HomeView(viewModel: ProductViewModel())
-}

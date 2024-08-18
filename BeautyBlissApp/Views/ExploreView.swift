@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Explore: View {
+struct ExploreView: View {
     @State var searchProduct = ""
     var body: some View {
         VStack {
@@ -19,5 +19,5 @@ struct Explore: View {
 }
 
 #Preview {
-    Explore()
+    ExploreView()
 }

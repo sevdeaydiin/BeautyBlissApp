@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct Favorite: View {
+struct FavoriteView: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @ObservedObject var viewModel = ProductViewModel()
     var body: some View {
@@ -37,7 +37,7 @@ struct Favorite: View {
 }
 
 #Preview {
-    Favorite()
+    FavoriteView()
 }
 
 struct FavoriteCard: View {

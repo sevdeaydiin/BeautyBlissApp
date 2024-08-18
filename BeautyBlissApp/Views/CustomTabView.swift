@@ -14,32 +14,35 @@ struct CustomTabView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var activeTab: Tab = .favorite
     @Namespace private var animation
+    @State private var isShowingProductInfo = false
     
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
-                HomeView(viewModel: ProductViewModel())
-                    //.background(Color.white.ignoresSafeArea())
+                HomeView(viewModel: ProductViewModel(), isShowingProductInfo: $isShowingProductInfo)
+                //.background(Color.white.ignoresSafeArea())
                     .tag(Tab.home)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Explore()
+                ExploreView()
                     .tag(Tab.explore)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Favorite()
-                    //.background(Color.lightGray.ignoresSafeArea())
+                FavoriteView()
+                //.background(Color.lightGray.ignoresSafeArea())
                     .tag(Tab.favorite)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Text("Profile")
+                ProfileView()
                     .tag(Tab.profile)
                     .toolbar(.hidden, for: .tabBar)
             }
             
-            CustomTabBar()
-                .background(Color.white.opacity(0.1)) // TabBar'ın arka planını saydam yap
-                .padding(.top, -35)
+            if !isShowingProductInfo {
+                CustomTabBar()
+                    .background(Color.white.opacity(0.1))
+                    .padding(.top, -35)
+            }
         }
     }
     
@@ -95,10 +98,10 @@ struct TabItem:View {
                 .foregroundStyle(activeTab == tab ? tint : .gray.opacity(0.6))
         }
         .frame(maxWidth: .infinity)
-            .contentShape(Rectangle())
-            .onTapGesture {
-                activeTab = tab
-            }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            activeTab = tab
+        }
     }
 }
 
