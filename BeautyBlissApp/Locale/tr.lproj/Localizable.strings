@@ -6,9 +6,27 @@
   
 */
 
+// Onboarding
 "welcomeBack" = "Yeniden Hoşgeldin!";
 "notAMember" = "Üye değil misin? ";
 "joinUs" = "Bize katıl";
 "email" = "Email";
 "password" = "Parola";
 "login" = "GİRİŞ YAP";
+
+// Tab View
+"home" = "Ana Sayfa";
+"explore" = "Keşfet";
+"favorite" = "Favoriler";
+"profile" = "Profil";
+
+// Profile
+"myOrders" = "Siparişlerim";
+"wishlist" = "Favorilerim";
+"myAddress" = "Adreslerim";
+"voucher" = "Kupon";
+"myAccount" = "Hesabım";
+"settings" = "Ayarlar";
+"help" = "Yardım";
+"contactUs" = "İletişim";
+"logOut" = "Çıkış";

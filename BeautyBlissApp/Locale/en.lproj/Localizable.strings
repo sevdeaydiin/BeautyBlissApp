@@ -6,9 +6,27 @@
   
 */
 
+// Onboarding
 "welcomeBack" = "Welcome Back!";
 "notAMember" = "Not a member? ";
 "joinUs" = "Join Us";
 "email" = "Email";
 "password" = "Password";
 "login" = "LOG IN";
+
+// Tab View
+"home" = "Home";
+"explore" = "Explore";
+"favorite" = "Favorite";
+"profile" = "Profile";
+
+// Profile
+"myOrders" = "My orders";
+"wishlist" = "Wishlist";
+"myAddress" = "My address";
+"voucher" = "Voucher";
+"myAccount" = " My Account";
+"settings" = " Settings";
+"help" = " Help";
+"contactUs" = "Contact Us";
+"logOut" = " Log Out";
