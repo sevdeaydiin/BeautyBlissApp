@@ -9,39 +9,74 @@ import SwiftUI
 
 struct CustomTabView: View {
     
-    //let user: User
+    let user: User?
     
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var activeTab: Tab = .favorite
     @Namespace private var animation
     @State private var isShowingProductInfo = false
+    @State private var isPage: Bool = false
+    @State private var page: Int = 0
+    
+    init(user: User? = nil) {
+        self.user = user
+    }
     
     var body: some View {
-        VStack(spacing: 0) {
-            TabView(selection: $activeTab) {
-                HomeView(viewModel: ProductViewModel(), isShowingProductInfo: $isShowingProductInfo)
-                //.background(Color.white.ignoresSafeArea())
-                    .tag(Tab.home)
-                    .toolbar(.hidden, for: .tabBar)
-                
-                ExploreView()
-                    .tag(Tab.explore)
-                    .toolbar(.hidden, for: .tabBar)
-                
-                FavoriteView()
-                //.background(Color.lightGray.ignoresSafeArea())
-                    .tag(Tab.favorite)
-                    .toolbar(.hidden, for: .tabBar)
-                
-                ProfileView()
+        NavigationStack {
+            VStack(spacing: 0) {
+                TabView(selection: $activeTab) {
+                    HomeView(viewModel: ProductViewModel(), isShowingProductInfo: $isShowingProductInfo)
+                    //.background(Color.white.ignoresSafeArea())
+                        .tag(Tab.home)
+                        .toolbar(.hidden, for: .tabBar)
+                    
+                    ExploreView()
+                        .tag(Tab.explore)
+                        .toolbar(.hidden, for: .tabBar)
+                    
+                    FavoriteView()
+                    //.background(Color.lightGray.ignoresSafeArea())
+                        .tag(Tab.favorite)
+                        .toolbar(.hidden, for: .tabBar)
+                    
+                    Button {
+                        isPage = true
+                        page = 1
+                        isShowingProductInfo = true
+                    } label: {
+                        
+                        if viewModel.isAuthenticated {
+                            if let user = viewModel.currentUser {
+                                ProfileView(isShow: $isShowingProductInfo)
+                                    .environmentObject(viewModel)
+                            }
+                        } else {
+                            
+                            NavigationLink(destination: LoginView().navigationBarBackButtonHidden()) {
+                                Text("Giriş Yap")
+                                    .padding()
+                            }
+                        }
+                    }
                     .tag(Tab.profile)
                     .toolbar(.hidden, for: .tabBar)
+                    
+                }
+                
+                if !isShowingProductInfo {
+                    CustomTabBar()
+                        .background(Color.white.opacity(0.1))
+                        .padding(.top, -35)
+                }
             }
-            
-            if !isShowingProductInfo {
-                CustomTabBar()
-                    .background(Color.white.opacity(0.1))
-                    .padding(.top, -35)
+            .navigationDestination(isPresented: $isPage) {
+                switch page {
+                case 1:
+                    ProfileView(isShow: $isShowingProductInfo)
+                default:
+                    RegisterView()
+                }
             }
         }
     }
