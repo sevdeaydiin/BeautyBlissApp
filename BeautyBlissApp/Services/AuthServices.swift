@@ -78,18 +78,18 @@ public class AuthServices {
     }
     
     
-    static func fetchUser(id: String, completion: @escaping (_ result: Result<Data, AuthenticationError>) -> Void) {
+    static func fetchUser(completion: @escaping (_ result: Result<Data, AuthenticationError>) -> Void) {
         
-        let urlString = URL(string: "\(NetworkConstants.baseURL)users/\(id)")!
-        var urlRequest = URLRequest(url: urlString)
-        print(urlString)
+        let url = URL(string: requestDomain)!
+        
         let session = URLSession.shared
+        var request = URLRequest(url: url)
         
-        urlRequest.httpMethod = "GET"
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let task = session.dataTask(with: urlRequest) { data, res, err in
+        let task = session.dataTask(with: request) { data, res, err in
             if let err = err {
                 completion(.failure(.custom(errorMessage: err.localizedDescription)))
                 return
