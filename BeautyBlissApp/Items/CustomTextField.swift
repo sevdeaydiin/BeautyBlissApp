@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct CustomTextField: View {
+    
     let placeholderText: LocalizedStringKey
-    @State private var text: String = ""
+    @Binding private var text: String
     let animation: Animation = .spring(response: 0.1, dampingFraction: 0.6)
     @State private var placeholderOffset: CGFloat
     @State private var scaleEffectValue: CGFloat
     
     private var onTextAction: ((_ oldValue: String, _ newValue: String) -> ())?
     
-    init(placeholderText: LocalizedStringKey, placeholderOffset: CGFloat = 0, scaleEffectValue: CGFloat = 1, onTextAction: ((_: String, _: String) -> Void)? = nil) {
+    init(placeholderText: LocalizedStringKey, text: Binding<String>, placeholderOffset: CGFloat = 0, scaleEffectValue: CGFloat = 1, onTextAction: ((_: String, _: String) -> Void)? = nil) {
         self.placeholderText = placeholderText
+        self._text = text
         self.placeholderOffset = placeholderOffset
         self.scaleEffectValue = scaleEffectValue
         self.onTextAction = onTextAction
