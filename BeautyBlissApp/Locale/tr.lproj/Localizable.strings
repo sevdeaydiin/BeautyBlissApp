@@ -30,3 +30,10 @@
 "help" = "Yardım";
 "contactUs" = "İletişim";
 "logOut" = "Çıkış";
+
+// Account
+"name" = "Adı";
+"lastname" = "Soyadı";
+"email" = "Email";
+"phoneNo" = "Cep Telefonu";
+"save" = "Kaydet";

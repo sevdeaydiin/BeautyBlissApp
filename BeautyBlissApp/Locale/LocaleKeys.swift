@@ -32,6 +32,13 @@ struct LocaleKeys {
         case contactUs = "contactUs"
         case logOut = "logOut"
     }
+    
+    enum Account: String {
+        case name = "name"
+        case lastname = "lastname"
+        case phoneNo = "phoneNo"
+        case save = "save"
+    }
 }
 
 extension String {

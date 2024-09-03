@@ -30,3 +30,11 @@
 "help" = " Help";
 "contactUs" = "Contact Us";
 "logOut" = " Log Out";
+
+// Account
+"name" = "Name";
+"lastname" = "Lastname";
+"email" = "Email";
+"phoneNo" = "Phone Number";
+"save" = "Save";
+
