@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProductInfoView: View {
     
     @Environment(\.dismiss) var dismiss
     //@Binding var isShowingProductInfo: Bool
+    @ObservedObject var viewModel: HomeCardViewModel
+    //let product: Product
     
     var body: some View {
         
@@ -31,33 +34,34 @@ struct ProductInfoView: View {
             }
             
             ScrollView {
-                
-                Image("powder")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: Sizes.width * 0.5, height: Sizes.height * 0.1)
-                    .background(
-                        RoundedRectangle(cornerRadius: 5)
-                            .fill(.white)
-                        //.shadow(color: .gray, radius: 5)
-                            .frame(width: Sizes.width * 0.9, height: Sizes.height * 0.4)
-                            .shadow(color: .myGray, radius: 5)
-                    )
-                    .padding(.top, 150)
+                if let uiImage = UIImage(data: Data(self.viewModel.product.image.data)) {
+                    KFImage(source: .provider(KFImageProvider(image: uiImage)))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: Sizes.width * 0.5, height: Sizes.height * 0.1)
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(.white)
+                            //.shadow(color: .gray, radius: 5)
+                                .frame(width: Sizes.width * 0.9, height: Sizes.height * 0.4)
+                                .shadow(color: .myGray, radius: 5)
+                        )
+                        .padding(.top, 150)
+                }
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("Kylie")
+                        Text(self.viewModel.product.brand)
                         Spacer()
-                        Text("Kylie")
+                        //Text(self.viewModel.product.brand)
                         
                     }
                     .font(.subheadline)
                     .foregroundStyle(.gray)
                     HStack {
-                        Text("powder")
+                        Text(self.viewModel.product.name)
                         Spacer()
-                        Text("powder")
+                        Text("$\(self.viewModel.product.salary, specifier: "%.2f")")
                         
                     }
                     .font(.headline)
@@ -109,7 +113,7 @@ struct ProductInfoView: View {
                     }
                     .padding(.top, 20)
                     
-                    Text("snsaj shbsha dshbdhs sdjnsd")
+                    Text(self.viewModel.product.productInfo!)
                         .foregroundStyle(.gray)
                         .font(.callout)
                         .lineLimit(5)
@@ -154,11 +158,11 @@ struct ProductInfoView: View {
             .frame(maxWidth: .infinity)
             .padding()
         }
+        .onAppear {
+            viewModel.fetchProductById()
+        }
         //.padding(.top, Sizes.height * 0.2)
     }
 }
 
-#Preview {
-    ProductInfoView()
-}
 

@@ -12,7 +12,7 @@ class ProductViewModel: ObservableObject {
     @Published var products = [Product]()
     @Published var filteredProducts: [Product] = []
     @Published var selectedCategory: String = "All"
-    @Published var categories: [String] = ["All", "Powder", "Foundation", "Lips", "Blush"]
+    @Published var categories: [String] = ["All", "Foundation", "Powder", "Mascara", "Lips", "Blush"]
     
     init() {
         fetchProducts()
