@@ -15,6 +15,7 @@ struct LocaleKeys {
         case join = "joinUs"
         case email = "email"
         case password = "password"
+        case loading = "loading"
     }
     
     enum CustomTabView: String {

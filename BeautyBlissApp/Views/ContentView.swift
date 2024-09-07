@@ -18,7 +18,7 @@ struct ContentView: View {
                     CustomTabView(user: user)
                         .environmentObject(viewModel)
                 } else {
-                    Text("Loading user data...")
+                    LoadingAnimation()
                 }
             } else {
                 CustomTabView()
@@ -28,18 +28,8 @@ struct ContentView: View {
         .onAppear {
             viewModel.isAuthenticated = UserDefaults.standard.object(forKey: "jsonwebtoken") != nil
         }
-        /*.onAppear {
-         print("isAuthenticated: \(viewModel.isAuthenticated)")
-         if let user = viewModel.currentUser {
-         print("Current User: \(user)")
-         } else {
-         print("No current user")
-         }
-         viewModel.isAuthenticated = UserDefaults.standard.object(forKey: "jsonwebtoken") != nil
-         }*/
     }
 }
-
 
 #Preview {
     ContentView()

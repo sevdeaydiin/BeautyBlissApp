@@ -13,6 +13,7 @@
 "email" = "Email";
 "password" = "Password";
 "login" = "LOG IN";
+"loading" = "Loading...";
 
 // Tab View
 "home" = "Home";
