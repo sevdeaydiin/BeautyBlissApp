@@ -12,7 +12,7 @@ struct CustomTabView: View {
     let user: User?
     
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var activeTab: Tab = .favorite
+    @State private var activeTab: Tab = .home
     @Namespace private var animation
     @State private var isShowingProductInfo = false
     @State private var isPage: Bool = false
@@ -26,7 +26,7 @@ struct CustomTabView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 TabView(selection: $activeTab) {
-                    HomeView(viewModel: ProductViewModel(), isShowingProductInfo: $isShowingProductInfo)
+                    HomeView(viewModel: ProductViewModel())
                     //.background(Color.white.ignoresSafeArea())
                         .tag(Tab.home)
                         .toolbar(.hidden, for: .tabBar)
@@ -40,28 +40,24 @@ struct CustomTabView: View {
                         .tag(Tab.favorite)
                         .toolbar(.hidden, for: .tabBar)
                     
-                    Button {
-                        isPage = true
-                        page = 1
-                        isShowingProductInfo = true
-                    } label: {
-                        
-                        if viewModel.isAuthenticated {
-                            if let user = viewModel.currentUser {
-                                ProfileView(isShow: $isShowingProductInfo)
-                                    .environmentObject(viewModel)
-                            }
-                        } else {
-                            
-                            NavigationLink(destination: LoginView().navigationBarBackButtonHidden()) {
-                                Text("Giriş Yap")
-                                    .padding()
-                            }
-                        }
-                    }
-                    .tag(Tab.profile)
-                    .toolbar(.hidden, for: .tabBar)
+                    //Button {
+                    //    isPage = true
+                    //    page = 1
+                    //    isShowingProductInfo = true
+                    //} label: {
                     
+                    if viewModel.isAuthenticated {
+                        if let user = viewModel.currentUser {
+                            ProfileView(user: user, isShow: $isShowingProductInfo)
+                                .environmentObject(viewModel)
+                                .tag(Tab.profile)
+                                .toolbar(.hidden, for: .tabBar)
+                        }
+                    } else {
+                        LoginView()
+                            .tag(Tab.profile)
+                            .toolbar(.hidden, for: .tabBar)
+                    }  
                 }
                 
                 if !isShowingProductInfo {
@@ -73,12 +69,13 @@ struct CustomTabView: View {
             .navigationDestination(isPresented: $isPage) {
                 switch page {
                 case 1:
-                    ProfileView(isShow: $isShowingProductInfo)
+                    ProfileView(user: user!, isShow: $isShowingProductInfo)
                 default:
                     RegisterView()
                 }
             }
         }
+        
     }
     
     @ViewBuilder

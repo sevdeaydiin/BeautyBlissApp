@@ -33,13 +33,16 @@ struct CustomTextField: View {
                 .offset(y: placeholderOffset)
                 .scaleEffect(scaleEffectValue, anchor: .leading)
                 .padding(.horizontal, 10)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             TextField("", text: $text)
                 .font(.headline)
                 .fontWeight(.regular)
                 .foregroundStyle(Color.lightTheme)
                 .padding(.horizontal, 10)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 14)
         .overlay {
             RoundedRectangle(cornerRadius: 5)

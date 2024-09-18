@@ -11,7 +11,7 @@ struct LoginView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
-    @State var email: String = "emily.cooper@gmail.com"
+    @State var email: String = "sevde.aydin@gmail.com"
     @State var password: String = "123456789"
     
     var body: some View {
@@ -25,6 +25,7 @@ struct LoginView: View {
                 
                 Text(LocaleKeys.Onboarding.welcome.rawValue.locale())
                     .font(.system(.largeTitle, design: .serif))
+                    .foregroundStyle(.black)
                     .fontWeight(.bold)
                     .padding(.bottom, 50)
                 

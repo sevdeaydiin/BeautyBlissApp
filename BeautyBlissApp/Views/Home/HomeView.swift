@@ -78,10 +78,14 @@ struct HomeView: View {
                     .padding(.bottom, -20)
                     
                 }
+                
             }
             .ignoresSafeArea(.all)
             .padding(.horizontal, 10)
             .padding(.vertical)
+        }
+        .onAppear {
+            viewModel.fetchProducts()
         }
     }
 }
