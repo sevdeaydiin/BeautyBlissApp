@@ -20,23 +20,27 @@ class ProductViewModel: ObservableObject {
     }
     
     func fetchProducts() {
-            
+        
         ProductServices.requestDomain = "\(NetworkConstants.baseURL)product"
-        ProductServices.fetchProduct { result in
-            switch result {
-            case .success(let data):
-                do {
-                    let json = String(data: data!, encoding: .utf8)
-                    let products = try JSONDecoder().decode([Product].self, from: data!)
-                    DispatchQueue.main.async {
-                        self.products = products
+        
+        DispatchQueue.global(qos: .background).async {
+            ProductServices.fetchProduct { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data):
+                        do {
+                            let json = String(data: data!, encoding: .utf8)
+                            let products = try JSONDecoder().decode([Product].self, from: data!)
+                            self?.products = products
+                            
+                        } catch {
+                            print("json decode error \(error)")
+                        }
+                        
+                    case .failure(let error):
+                        print(error.localizedDescription)
                     }
-                } catch {
-                    print("json decode error \(error)")
                 }
-                
-            case .failure(let error):
-                print(error.localizedDescription)
             }
         }
     }

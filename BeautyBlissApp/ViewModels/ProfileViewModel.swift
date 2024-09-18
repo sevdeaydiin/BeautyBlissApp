@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class ProfileViewModel: ObservableObject {
+    
+    @Published var user: User
+    
+    init(user: User) {
+        self.user = user
+        chechIsCurrentUser()
+    }
+    
+    func chechIsCurrentUser() {
+        if(self.user._id == AuthViewModel.shared.currentUser?._id) {
+            self.user.isCurrentUser = true
+        }
+    }
+}

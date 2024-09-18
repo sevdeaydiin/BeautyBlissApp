@@ -18,16 +18,17 @@ class HomeCardViewModel: ObservableObject {
     func fetchProductById() {
         ProductServices.requestDomain = "\(NetworkConstants.baseURL)product/\(self.product.id)"
         
-        ProductServices.fetchProductById { result in
-            switch result {
-            case .success(let data):
-                guard let product = try? JSONDecoder().decode(Product.self, from: data!) else { return }
+        DispatchQueue.global(qos: .background).async {
+            ProductServices.fetchProductById { [weak self] result in
                 DispatchQueue.main.async {
-                    self.product = product
+                    switch result {
+                    case .success(let data):
+                        guard let product = try? JSONDecoder().decode(Product.self, from: data!) else { return }
+                        self?.product = product
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
-                
-            case .failure(let error):
-                print(error.localizedDescription)
             }
         }
     }
