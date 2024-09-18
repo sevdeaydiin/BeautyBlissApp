@@ -15,7 +15,7 @@ public class ProductServices {
         let url = URL(string: requestDomain)!
         
         let session = URLSession.shared
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10.0)
         
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -37,7 +37,7 @@ public class ProductServices {
         let url = URL(string: requestDomain)!
         
         let session = URLSession.shared
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10.0)
         
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -26,10 +26,9 @@ struct Product: Identifiable, Decodable, Hashable {
     var stock: Bool
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id) // Genellikle yalnızca benzersiz ID kullanılır.
+        hasher.combine(id)
     }
 
-    // Eşitlik kontrolü için de Equatable protokolünü uygulayabilirsiniz.
     static func == (lhs: Product, rhs: Product) -> Bool {
         return lhs.id == rhs.id
     }
