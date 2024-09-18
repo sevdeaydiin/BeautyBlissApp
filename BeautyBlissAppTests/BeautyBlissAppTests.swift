@@ -35,6 +35,22 @@ final class BeautyBlissAppTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
+    func testFetchProductSuccess() throws {
+        let expectation = self.expectation(description: "Fetch product succeeds")
+        
+        ProductServices.fetchProduct { result in
+            switch result {
+            case .success(let data):
+                XCTAssertNotNil(data, "Data should not be nil on success login")
+                expectation.fulfill()
+                
+            case .failure(let error):
+                XCTFail("Fetch product should succeed, but failed with error \(error)")
+            }
+        }
+        waitForExpectations(timeout: 15, handler: nil)
+    }
+    
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
