@@ -12,7 +12,21 @@ struct ProfileView: View {
     @State var isPage: Bool = false
     @State var page: Int = 0
     @Binding var isShow: Bool
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    @ObservedObject var viewModel: ProfileViewModel
+    
+    var isCurrentUser: Bool {
+        return viewModel.user.isCurrentUser ?? false
+    }
+    
+    let user: User
+    
+    init(user: User, isShow: Binding<Bool>) {
+        self.user = user
+        self._isShow = isShow
+        self.viewModel = ProfileViewModel(user: user)
+    }
     
     var body: some View {
         NavigationStack {
@@ -38,7 +52,7 @@ struct ProfileView: View {
                                     .resizable()
                                     .frame(width: 80, height: 80)
                                 
-                                Text(viewModel.currentUser?.name ?? "Name")
+                                Text(viewModel.user.name)
                                     .font(.system(.title, design: .serif))
                                     .fontWeight(.bold)
                                     
@@ -111,7 +125,7 @@ struct ProfileView: View {
                         }
                         
                         RouterButton(iconName: "rectangle.portrait.and.arrow.right", text: LocaleKeys.Profile.logOut.rawValue.locale()) {
-                                self.viewModel.logout()
+                                self.authViewModel.logout()
                         }
                     }
                     .padding(.vertical, 50)
@@ -124,8 +138,8 @@ struct ProfileView: View {
                         case 2:
                             FavoriteView().navigationBarBackButtonHidden()
                         case 5:
-                            MyAccount()
-                                //.navigationBarBackButtonHidden()
+                            MyAccount(user: $viewModel.user)
+                                .navigationBarBackButtonHidden()
                         case 6:
                             Settings()
                                 //.navigationBarBackButtonHidden()

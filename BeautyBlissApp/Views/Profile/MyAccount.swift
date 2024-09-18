@@ -10,14 +10,36 @@ import Kingfisher
 
 struct MyAccount: View {
     
-    //@EnvironmentObject var viewModel: AuthViewModel
+    @ObservedObject var viewModel: EditProfileViewModel
+    @Binding var user: User
     @State var name: String = ""
     @State var lastname: String = ""
-    @State var email: String = ""
+    //@State var email: String = ""
     @State var phoneNo: String = ""
+    
+    @Environment(\.dismiss) var dismiss
+    
+    init(user: Binding<User>) {
+        self._user = user
+        self.viewModel = EditProfileViewModel(user: self._user.wrappedValue)
+        self._name = State(initialValue: self._user.name.wrappedValue)
+        self._lastname = State(initialValue: self._user.lastname.wrappedValue)
+        self._phoneNo = State(initialValue: self._user.phoneNo.wrappedValue)
+    }
     
     var body: some View {
         VStack {
+            
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .fontWeight(.bold)
+                    .foregroundStyle(.black)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 20)
+            .padding(.top, 20)
             
             //KFImage(URL("\(NetworkConstants.baseURL)"))
             
@@ -36,17 +58,19 @@ struct MyAccount: View {
                 }
                 //.frame(maxWidth: .infinity, alignment: .center)
                 Divider().frame(height: 10)
-                HStack(spacing: 60) {
+                HStack(spacing: 55) {
                     Text(LocaleKeys.Account.lastname.rawValue.locale())
                         .fontWeight(.bold)
                     
                     TextField("", text: $lastname)
                 }
                 Divider().frame(height: 10)
-                HStack(spacing: 70) {
+                HStack(spacing: 90) {
                     Text(LocaleKeys.Onboarding.email.rawValue.locale())
                         .fontWeight(.bold)
-                    TextField("", text: $email)
+                    Text(self.viewModel.user.email)
+                        .lineLimit(1)
+                        
                 }
                 Divider().frame(height: 10)
                 HStack {
@@ -57,11 +81,11 @@ struct MyAccount: View {
                 Divider().frame(height: 10)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 50)
+            .padding(.horizontal, 20)
             .padding(.top, 50)
             
             Button {
-                //self.viewModel.login(email: email, password: password)
+                self.viewModel.uploadUserData(name: name, lastname: lastname, phoneNo: phoneNo)
             } label: {
                 Text(LocalizedStringKey("save"))
                     .font(.headline)
@@ -85,9 +109,12 @@ struct MyAccount: View {
             
             Spacer()
         }
+        .onReceive(viewModel.$uploadComplete) { complete in
+            if complete {
+                self.user.name = viewModel.user.name
+                self.user.lastname = viewModel.user.lastname
+                self.user.phoneNo = viewModel.user.phoneNo
+            }
+        }
     }
-}
-
-#Preview {
-    MyAccount()
 }

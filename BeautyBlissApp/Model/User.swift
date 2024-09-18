@@ -17,14 +17,15 @@ struct User: Decodable, Identifiable {
     var id: String {
         return _id
     }
-    let name: String
-    let lastname: String
+    var name: String
+    var lastname: String
     let email: String
-    let telNo: String
+    var phoneNo: String
     var birthday: String?
     var gender: Bool?
     var orders: [String]?
     var favorites: [String]?
     var clubScore: Int?
     var clubNo: Int?
+    var isCurrentUser: Bool? = false
 }
