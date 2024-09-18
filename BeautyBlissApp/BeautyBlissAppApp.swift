@@ -18,7 +18,7 @@ struct BeautyBlissAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                //.environmentObject(AuthViewModel.shared)
+                .environmentObject(AuthViewModel.shared)
         }
     }
 }
