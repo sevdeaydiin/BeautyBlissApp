@@ -15,10 +15,10 @@ class FavoriteViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     
     func loadFavorites() {
-        self.isLoading = true
         
+        self.isLoading = true
         guard let userId = AuthViewModel.shared.currentUser?.id else {
-            errorMessage = "User not found"
+            self.errorMessage = "User not logged in"
             return
         }
         
@@ -67,50 +67,23 @@ class FavoriteViewModel: ObservableObject {
         }
     }
     
-}
-
-/*class FavoriteViewModel: ObservableObject {
-    
-    //@Published var favoriteResponse: [String: Any]?
-    @Published var errorMessage: String?
-    @Published var favorites: [Favorite] = []
-    
-    init() {
-        //self.favoriteProduct = favorite
-        fetchFavorites(userId: AuthViewModel.shared.currentUser?.id ?? "")
-    }
-    
-    func addFavorite(productId: String, userId: String) {
-            ProductServices.addFavorite(productId: productId, userId: userId) { [weak self] result in
+    func addFavorite(productId: String) {
+        
+        guard let userId = AuthViewModel.shared.currentUser?.id else {
+            self.errorMessage = "User not logged in"
+            return
+        }
+        
+        ProductServices.addFavorite(productId: productId, userId: userId) { result in
+            switch result {
+            case .success(let data):
                 DispatchQueue.main.async {
-                    switch result {
-                    case .success(let response):
-                        print("Successfully added to favorites: \(response)")
-                        self?.fetchFavorites(userId: userId)
-                    case .failure(let error):
-                        self?.errorMessage = "Failed to add to favorites: \(error.localizedDescription)"
-                    }
+                    print("Product added to favorites")
                 }
-            }
-        }
-    
-    func fetchFavorites(userId: String) {
-        ProductServices.fetchFavorite(userId: userId) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    do {
-                        let favorites = try JSONDecoder().decode([Favorite].self, from: data)
-                        self?.favorites = favorites
-                    } catch {
-                        self?.errorMessage = "Failed to decode favorites: \(error.localizedDescription)"
-                    }
-                    //guard let favorite = try? JSONDecoder().decode([Favorite].self, from: data) else { return }
-                case .failure(let error):
-                    self?.errorMessage = "Failed to fetch favorites: \(error.localizedDescription)"
-                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
-
-}*/
+    
+}

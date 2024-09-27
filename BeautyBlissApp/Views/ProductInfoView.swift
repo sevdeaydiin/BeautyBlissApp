@@ -13,6 +13,7 @@ struct ProductInfoView: View {
     @Environment(\.dismiss) var dismiss
     //@Binding var isShowingProductInfo: Bool
     @ObservedObject var viewModel: HomeCardViewModel
+    @ObservedObject var favoriteViewModel = FavoriteViewModel()
     //let product: Product
     
     var body: some View {
@@ -54,7 +55,6 @@ struct ProductInfoView: View {
                         Text(self.viewModel.product.brand)
                         Spacer()
                         //Text(self.viewModel.product.brand)
-                        
                     }
                     .font(.subheadline)
                     .foregroundStyle(.gray)
@@ -62,7 +62,6 @@ struct ProductInfoView: View {
                         Text(self.viewModel.product.name)
                         Spacer()
                         Text("$\(self.viewModel.product.salary, specifier: "%.2f")")
-                        
                     }
                     .font(.headline)
                     HStack(spacing: 0) {
@@ -123,7 +122,6 @@ struct ProductInfoView: View {
                 .padding(.top, Sizes.height * 0.2)
                 .padding(.horizontal, 30)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                
             }
             
             HStack(spacing: 10) {
@@ -137,13 +135,12 @@ struct ProductInfoView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.myPink)
                         .cornerRadius(5)
-                        
                 }
-               
                 Button {
-                    
+                    favoriteViewModel.addFavorite(productId: viewModel.product.id)
                 } label: {
                     Image(systemName: "heart")
+                            //self.favoriteViewModel.favoriteProducts.contains(viewModel.product.id) ? )
                         .foregroundStyle(.first)
                         .padding()
                         .background(
@@ -161,8 +158,5 @@ struct ProductInfoView: View {
         .onAppear {
             viewModel.fetchProductById()
         }
-        //.padding(.top, Sizes.height * 0.2)
     }
 }
-
-

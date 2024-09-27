@@ -12,7 +12,6 @@ struct FavoriteView: View {
     
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @ObservedObject var viewModel = FavoriteViewModel()
-    //var userId: String
     
     var body: some View {
         VStack {
@@ -48,23 +47,15 @@ struct FavoriteView: View {
                             .padding()
                             .background(Color.gray.opacity(0.07))
                             .padding()
-                    }
-                    
+                    }  
                 }
             }
-            
         }
         .onAppear {
             viewModel.loadFavorites()
         }
         .background(Color.gray.opacity(0.07))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        //.onAppear {
-        //    DispatchQueue.main.async {
-        //        viewModel.loadFavorites()
-        //    }
-        //}
     }
 }
 
