@@ -9,42 +9,68 @@ import SwiftUI
 import Kingfisher
 
 struct FavoriteView: View {
+    
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
-    @ObservedObject var viewModel = ProductViewModel()
+    @ObservedObject var viewModel = FavoriteViewModel()
+    //var userId: String
+    
     var body: some View {
-        
         VStack {
             Text("Favorite")
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundStyle(.first)
                 .padding()
-            ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: columns) {
-                    
-                    ForEach(viewModel.products) { product in
-                        FavoriteCard(viewModel: FavoriteCardViewModel(product: product))
+            
+            VStack {
+                if viewModel.isLoading {
+                    LoadingAnimation()
+                } else if let errorMessage = viewModel.errorMessage {
+                    Text("Failed: \(errorMessage)")
+                        .foregroundStyle(.red)
+                        .padding()
+                    Spacer()
+                }  else {
+                    if !viewModel.favoriteProducts.isEmpty {
+                        ScrollView(showsIndicators: false) {
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                                ForEach(viewModel.favoriteProducts, id: \.id) { product in
+                                    FavoriteCard(product: product)
+                                    //.onTapGesture {
+                                    //viewModel.addFavorite(productId: product.id)
+                                    //}
+                                }
+                            }
+                            .padding()
+                        }
+                    } else {
+                        Text("Favorite list is empty.")
+                            .padding()
+                            .background(Color.gray.opacity(0.07))
+                            .padding()
                     }
+                    
                 }
-                .padding()
-                //.frame(maxWidth: .infinity, maxHeight: .infinity)
-                
             }
-            .background(Color.lightGray)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
         }
         .onAppear {
-            viewModel.fetchProducts()
+            viewModel.loadFavorites()
         }
+        .background(Color.gray.opacity(0.07))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
+        //.onAppear {
+        //    DispatchQueue.main.async {
+        //        viewModel.loadFavorites()
+        //    }
+        //}
     }
 }
 
 struct FavoriteCard: View {
     
-    @ObservedObject var viewModel: FavoriteCardViewModel
-    init(viewModel: FavoriteCardViewModel) {
-        self.viewModel = viewModel
-    }
+    var product: Product
     
     var body: some View {
         RoundedRectangle(cornerRadius: 5)
@@ -55,30 +81,26 @@ struct FavoriteCard: View {
                 VStack(spacing: 25) {
                     Spacer()
                     
-                    if let uiImage = UIImage(data: Data(self.viewModel.product.image.data)) {
+                    if let uiImage = UIImage(data: Data(self.product.image.data)) {
                         KFImage(source: .provider(KFImageProvider(image: uiImage)))
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: Sizes.width * 0.3, height: Sizes.width * 0.3)
                     }
-                        
-                        
-                    
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(self.viewModel.product.brand)
+                        Text(self.product.brand)
                             .lineLimit(1)
                             .foregroundStyle(.myGray)
-                        Text(self.viewModel.product.name)
+                        Text(self.product.name)
                             .font(.headline)
                             .lineLimit(2)
                             .foregroundStyle(.lightTheme)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        Text("$\(self.viewModel.product.salary, specifier: "%.2f")")
+                        Text("$\(self.product.salary, specifier: "%.2f")")
                             .font(.headline)
                             .foregroundStyle(.first)
                     }
                     .frame(maxWidth: .infinity)
-                    //.padding(.top, 15)
                     .padding(.horizontal, 2)
                 }
                 .padding(.vertical, 8)
@@ -91,8 +113,4 @@ struct FavoriteCard: View {
                     .position(x: 155, y: 25)
             )
     }
-}
-
-#Preview {
-    FavoriteView()
 }
