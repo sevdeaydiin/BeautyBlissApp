@@ -14,4 +14,5 @@ struct Favorite: Decodable, Identifiable {
     }
     var productId: String
     var userId: String
+    var isActive: Bool
 }

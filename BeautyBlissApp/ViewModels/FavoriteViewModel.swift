@@ -15,7 +15,6 @@ class FavoriteViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     
     func loadFavorites() {
-        
         self.isLoading = true
         guard let userId = AuthViewModel.shared.currentUser?.id else {
             self.errorMessage = "User not logged in"
@@ -27,7 +26,7 @@ class FavoriteViewModel: ObservableObject {
                 switch result {
                 case .success(let data):
                     do {
-                        let favorites = try JSONDecoder().decode([Favorite].self, from: data)
+                        let favorites = try JSONDecoder().decode([Favorite].self, from: data).filter { $0.isActive }
                         self?.loadProducts(for: favorites)
                     } catch {
                         self?.errorMessage = "Failed to decode favorites"
@@ -66,24 +65,46 @@ class FavoriteViewModel: ObservableObject {
             self.favoriteProducts = products
         }
     }
-    
+
     func addFavorite(productId: String) {
-        
         guard let userId = AuthViewModel.shared.currentUser?.id else {
             self.errorMessage = "User not logged in"
             return
         }
         
-        ProductServices.addFavorite(productId: productId, userId: userId) { result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    print("Product added to favorites")
+        ProductServices.addFavorite(productId: productId, userId: userId) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    do {
+                            print("Favorite added successfully")
+                            self?.loadFavorites()
+                    } catch {
+                        self?.errorMessage = "Failed to decode favorite"
+                    }
+                case .failure(let error):
+                    self?.errorMessage = "Failed to add to favorites: \(error.localizedDescription)"
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func removeFavorite(favoriteId: String) {
+        ProductServices.removeFavorite(favoriteId: favoriteId) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    self?.loadFavorites()
+                case .failure(let error):
+                    self?.errorMessage = "Failed to remove from favorites: \(error.localizedDescription)"
+                }
             }
         }
     }
     
+    func isProductFavorite(productId: String) -> Bool {
+        
+        return favoriteProducts.contains { $0.id == productId }
+    }
 }
+

@@ -14,7 +14,6 @@ struct ProductInfoView: View {
     //@Binding var isShowingProductInfo: Bool
     @ObservedObject var viewModel: HomeCardViewModel
     @ObservedObject var favoriteViewModel = FavoriteViewModel()
-    //let product: Product
     
     var body: some View {
         
@@ -137,10 +136,18 @@ struct ProductInfoView: View {
                         .cornerRadius(5)
                 }
                 Button {
-                    favoriteViewModel.addFavorite(productId: viewModel.product.id)
+                    print(favoriteViewModel.favoriteProducts.first(where: { $0.id == viewModel.product.id }) ?? "buton")
+                    if favoriteViewModel.isProductFavorite(productId: viewModel.product.id) {
+                        if let favorite = favoriteViewModel.favoriteProducts.first(where: { $0.id == viewModel.product.id }) {
+                            favoriteViewModel.removeFavorite(favoriteId: favorite.id)
+                            print("false")
+                        }
+                    } else {
+                        favoriteViewModel.addFavorite(productId: viewModel.product.id)
+                        print("true")
+                    }
                 } label: {
-                    Image(systemName: "heart")
-                            //self.favoriteViewModel.favoriteProducts.contains(viewModel.product.id) ? )
+                    Image(systemName: favoriteViewModel.isProductFavorite(productId: viewModel.product.id) ? "heart.fill" : "heart")
                         .foregroundStyle(.first)
                         .padding()
                         .background(

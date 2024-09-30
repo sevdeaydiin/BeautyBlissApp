@@ -14,24 +14,24 @@ public class ProductServices {
     }
     
     enum Method: String {
-        case get, post, put, delete
+        case get = "GET"
+        case post = "POST"
+        case put = "PUT"
+        case delete = "DELETE"
     }
     
-    //public static var requestDomain = ""
-    
-    private static func performRequest(urlPath: String, method: String, parameters: [String: Any]? = nil, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        guard let url = URL(string: "\(NetworkConstants.baseURL)\(urlPath)")  else {
+    private static func performRequest(urlPath: String, method: Method, parameters: [String: Any]? = nil, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+        guard let url = URL(string: "\(NetworkConstants.baseURL)\(urlPath)") else {
             completion(.failure(.urlError))
             return
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = method
-        //Method.post.rawValue
+        request.httpMethod = method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        if let params = parameters, method == "POST" {
+        if let params = parameters, (method == .post || method == .put) {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: params)
             } catch {
@@ -50,32 +50,41 @@ public class ProductServices {
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(.serverError))
                 return
             }
             
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
+            switch httpResponse.statusCode {
+            case 200, 201:
+                guard let data = data else {
+                    completion(.failure(.noData))
+                    return
+                }
+                completion(.success(data))
+            case 401:
+                completion(.failure(.unauthorized))
+            default:
+                completion(.failure(.serverError))
             }
-            completion(.success(data))
         }
         task.resume()
     }
     
-    
+    // Ürün listesi çekme
     static func fetchProduct(completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        performRequest(urlPath: "product", method: "GET", completion: completion)
+        performRequest(urlPath: "product", method: .get, completion: completion)
     }
     
+    // Ürün bilgisi ID ile çekme
     static func fetchProductById(productId: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        performRequest(urlPath: "product/\(productId)", method: "GET", completion: completion)
+        performRequest(urlPath: "product/\(productId)", method: .get, completion: completion)
     }
     
-    static func addFavorite( productId: String, userId: String, completion: @escaping (Result<[String: Any], NetworkError>) -> Void) {
+    // Favorilere ürün ekleme
+    static func addFavorite(productId: String, userId: String, completion: @escaping (Result<[String: Any], NetworkError>) -> Void) {
         let params = ["productId": productId, "userId": userId]
-        performRequest(urlPath: "favorite/\(userId)", method: "POST", parameters: params) { result in
+        performRequest(urlPath: "favorite", method: .post, parameters: params) { result in
             switch result {
             case .success(let data):
                 do {
@@ -93,91 +102,20 @@ public class ProductServices {
         }
     }
     
+    // Favori kaldırma (isActive'ı false yapma)
+    static func removeFavorite(favoriteId: String, completion: @escaping (Result<Void, NetworkError>) -> Void) {
+        performRequest(urlPath: "favorite/\(favoriteId)", method: .put) { result in
+            switch result {
+            case .success(_):
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    // Kullanıcının favorilerini çekme
     static func fetchFavorite(userId: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        performRequest(urlPath: "favorite/\(userId)", method: "GET", completion: completion)
+        performRequest(urlPath: "favorite/\(userId)", method: .get, completion: completion)
     }
-    
-    
-    /*public static var requestDomain = ""
-    
-    static func fetchProduct(completion: @escaping (_ result: Result<Data?, NetworkError>) -> Void) {
-        let url = URL(string: requestDomain)!
-        
-        let session = URLSession.shared
-        var request = URLRequest(url: url)
-                                 //, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10.0)
-        
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let task = session.dataTask(with: request) { data, res, err in
-            guard err == nil else {
-                completion(.failure(.noData))
-                return
-            }
-            guard let data = data else { return }
-            completion(.success(data))
-        }
-        task.resume()
-    }
-    
-    
-    static func fetchProductById(completion: @escaping (_ result: Result<Data?, NetworkError>) -> Void) {
-        let url = URL(string: requestDomain)!
-        
-        let session = URLSession.shared
-        var request = URLRequest(url: url)
-                                 //, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10.0)
-        
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let task = session.dataTask(with: request) { data, res, err in
-            guard err == nil else {
-                completion(.failure(.noData))
-                return
-            }
-            guard let data = data else { return }
-            completion(.success(data))
-        }
-        task.resume()
-    }
-    
-    static func addFavorite(productId: String, userId: String, completion : @escaping (_ result: Result<[String: Any]?, DatabaseError>) -> Void) {
-        let params = ["productId": productId, "userId": userId] as [String: Any]
-        let url = URL(string: requestDomain)!
-        let session = URLSession.shared
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-        } catch let error {
-            print(error)
-        }
-        
-        // authentication part in the http request
-        let token = UserDefaults.standard.string(forKey: "jsonwebtoken")!
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let task = session.dataTask(with: request) { data, res, err in
-            guard err == nil else { return }
-            guard let data = data else { return }
-            
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    completion(.success(json))
-                }
-            } catch {
-                completion(.failure(DatabaseError.failedToFavorite))
-            }
-        }
-        task.resume()
-    }*/
-    
 }
-

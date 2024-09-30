@@ -41,20 +41,17 @@ struct FavoriteView: View {
                                 }
                             }
                             .padding()
+                            .background(Color.gray.opacity(0.07))
                         }
                     } else {
-                        Text("Favorite list is empty.")
-                            .padding()
-                            .background(Color.gray.opacity(0.07))
-                            .padding()
-                    }  
+                        TextView()
+                    }
                 }
             }
         }
         .onAppear {
             viewModel.loadFavorites()
         }
-        .background(Color.gray.opacity(0.07))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
