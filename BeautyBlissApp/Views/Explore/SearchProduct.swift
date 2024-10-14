@@ -10,14 +10,30 @@ import SwiftUI
 struct SearchProduct: View {
     
     @Binding var searchProduct: String
+    @Binding var isEditing: Bool
     
     var body: some View {
         HStack {
             HStack {
                 Image(systemName: "magnifyingglass")
                 TextField("Search product", text: $searchProduct)
+                
+                if isEditing {
+                    Button {
+                        isEditing = false
+                        searchProduct = ""
+                        UIApplication.shared.endEditing()
+                    } label: {
+                        Image(systemName: "multiply")
+                            .fontWeight(.light)
+                            .foregroundStyle(.black)
+                    }
+                }
             }
             .padding()
+            .onTapGesture {
+                isEditing = true
+            }
             .background(Color.lightGray)
             .cornerRadius(5)
             
