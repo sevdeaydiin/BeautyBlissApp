@@ -66,6 +66,7 @@ struct CustomTabView: View {
                         .padding(.top, -35)
                 }
             }
+            .ignoresSafeArea(.keyboard)
             .navigationDestination(isPresented: $isPage) {
                 switch page {
                 case 1:
