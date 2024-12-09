@@ -4,11 +4,11 @@ Beauty Bliss is your go-to mobile application for discovering the latest and tre
 
  ## 📸 Screenshots
 
-<img src="https://github.com/user-attachments/assets/5d2daead-3f25-4c72-9605-36305d0aeb6f" width="195" height="400"/> 
-<img src="https://github.com/user-attachments/assets/04c5065b-43cc-47b0-9454-c00450fa9590" width="195" height="400"/> 
-<img src="https://github.com/user-attachments/assets/576bf42a-82f7-49d7-aaae-3c1ebc892a3c" width="195" height="400"/> 
-<img src="https://github.com/user-attachments/assets/782a949f-766b-44e5-b683-b88b76424a83" width="195" height="400"/> 
-<img src="https://github.com/user-attachments/assets/7cc47be0-7552-42a6-a75b-027c407fc22c" width="195" height="400"/> 
+<img src="https://github.com/user-attachments/assets/5d2daead-3f25-4c72-9605-36305d0aeb6f" width="150" height="300"/> 
+<img src="https://github.com/user-attachments/assets/04c5065b-43cc-47b0-9454-c00450fa9590" width="150" height="300"/> 
+<img src="https://github.com/user-attachments/assets/576bf42a-82f7-49d7-aaae-3c1ebc892a3c" width="150" height="300"/> 
+<img src="https://github.com/user-attachments/assets/782a949f-766b-44e5-b683-b88b76424a83" width="150" height="300"/> 
+<img src="https://github.com/user-attachments/assets/7cc47be0-7552-42a6-a75b-027c407fc22c" width="150" height="300"/> 
 
 ## ✨ Features
 - **Latest Cosmetics**: Discover the most popular and trending beauty products daily.
